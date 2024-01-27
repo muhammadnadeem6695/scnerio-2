@@ -1,0 +1,9 @@
+from collections import Counter
+
+word_list = ["apple", "banana", "apple", "orange", "banana", "grape", "apple"]
+
+word_frequency = Counter(word_list)
+
+print("Word Frequencies:")
+for word, count in word_frequency.items():
+    print(f"{word}: {count}")

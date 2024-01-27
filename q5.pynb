@@ -1,0 +1,42 @@
+def display_nominees():
+    print("Nominees:")
+    print("1. Candidate A - Employee of the Year")
+    print("2. Candidate B - Team Player of the Year")
+    print("3. Candidate C - Innovation Award")
+
+def collect_votes(num_voters):
+    votes = {}
+    for _ in range(num_voters):
+        while True:
+            try:
+                voter_choice = int(input("Enter your vote (1, 2, or 3): "))
+                if 1 <= voter_choice <= 3:
+                    break
+                else:
+                    print("Invalid choice. Please choose a valid candidate.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+
+        candidate_key = f"Candidate {chr(ord('A') + voter_choice - 1)}"
+        votes[candidate_key] = votes.get(candidate_key, 0) + 1
+        print(f"Vote recorded for {candidate_key}.")
+
+    return votes
+
+def display_results(votes):
+    print("\nVoting Results:")
+    for candidate, vote_count in votes.items():
+        print(f"{candidate}: {vote_count} votes")
+
+if __name__ == "__main__":
+    # Input the number of voters participating
+    num_voters = int(input("Enter the number of voters: "))
+
+    # Display the nominees
+    display_nominees()
+
+    # Collect votes
+    voting_results = collect_votes(num_voters)
+
+    # Display the results
+    display_results(voting_results)

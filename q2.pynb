@@ -1,0 +1,16 @@
+student_grades = {}
+
+for i in range(5):
+    student_name = input(f"Enter the name of student {i + 1}: ")
+    grade = float(input(f"Enter the grade for {student_name}: "))
+    student_grades[student_name] = grade
+
+total_grades = sum(student_grades.values())
+num_students = len(student_grades)
+average_grade = total_grades / num_students
+
+print("\nStudent Grades:")
+for student, grade in student_grades.items():
+    print(f"{student}: {grade}")
+
+print(f"\nAverage Grade: {average_grade}")
